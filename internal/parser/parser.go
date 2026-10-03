@@ -12,23 +12,6 @@ const (
 
 type parser struct{}
 
-func New() *parser {
+func New() Parser {
 	return &parser{}
-}
-
-func (p *parser) IsLevelHeading(level int, line string) bool {
-	depth := p.GetHeadingDepth(line)
-
-	return level == depth
-}
-
-func (p *parser) GetHeadingDepth(line string) (depth int) {
-	for symbol := range line {
-		if symbol != int(cell) {
-			return depth
-		}
-		depth++
-	}
-
-	return depth
 }
