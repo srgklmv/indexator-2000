@@ -5,5 +5,6 @@ import (
 )
 
 type Parser interface {
-	ParseFile(ctx context.Context, filename string) File
+	ParseFile(ctx context.Context, filename string) (File, error)
+	AddIndex(ctx context.Context, filename string, lines []string) error
 }
